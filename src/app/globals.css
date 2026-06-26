@@ -33,3 +33,12 @@ body {
   padding-left: clamp(1.25rem, 4vw, 5rem);
   padding-right: clamp(1.25rem, 4vw, 5rem);
 }
+@keyframes loaderLine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
+}

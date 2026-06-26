@@ -8,10 +8,12 @@ import WhyEzgiTur from "@/components/WhyEzgiTur";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageLoader from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#f5f5f3] text-[#161616]">
+      <PageLoader />
       <Header />
       <FloatingActions />
       <Hero />
