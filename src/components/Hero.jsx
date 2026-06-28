@@ -26,7 +26,7 @@ export default function Hero() {
             EZGİ TUR SERVİS TAŞIMACILIĞI
           </p>
 
-<h1 className="hero-title font-heading  font-bold leading-[0.9] text-black text-4xl xl:text-7xl">
+<h1 className="hero-title font-heading  font-bold leading-[0.9] text-black text-5xl xl:text-7xl">
   Personel
   <br />
   Taşımacılığında
