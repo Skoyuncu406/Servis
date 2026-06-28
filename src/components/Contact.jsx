@@ -1,23 +1,25 @@
-import { ArrowRight, Mail, MapPin, Phone, Route } from "lucide-react";
+"use client";
+
+import { Mail, MapPin, Phone, Route } from "lucide-react";
 
 const contactItems = [
   {
+    icon: Phone,
     title: "Telefon",
     value: "+90 (542) 284 78 97",
     href: "tel:+905422847897",
-    icon: Phone,
   },
   {
-    title: "E-Posta",
+    icon: Mail,
+    title: "E-posta",
     value: "ezgitur1@gmail.com",
     href: "mailto:ezgitur1@gmail.com",
-    icon: Mail,
   },
   {
-    title: "Adres",
-    value: "İzmir, Menemen / 30 Ağustos Mahallesi",
-    href: null,
     icon: MapPin,
+    title: "Adres",
+    value: "30 Ağustos Mahallesi, Menemen / İzmir",
+    href: "https://www.google.com/maps/search/?api=1&query=30+A%C4%9Fustos+Mahallesi+Menemen+%C4%B0zmir",
   },
 ];
 
@@ -25,81 +27,80 @@ export default function Contact() {
   return (
     <section
       id="iletisim"
-      className="flex min-h-[calc(100vh-64px)] scroll-mt-16 items-center bg-[#f5f5f3] py-6 lg:min-h-[calc(100vh-64px)]"
+      className="scroll-mt-16 bg-[#f5f5f3] px-5 py-16 lg:min-h-[calc(100vh-64px)] lg:py-6"
     >
-      <div className="container-px mx-auto grid w-full max-w-7xl gap-6 lg:h-[calc(100vh-112px)] lg:grid-cols-2">
-        <div className="group h-[360px] overflow-hidden border border-black/10 bg-white lg:h-full">
+      <div className="mx-auto grid w-full max-w-7xl gap-6 lg:h-[calc(100vh-112px)] lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative h-[360px] overflow-hidden border border-black/10 bg-white sm:h-[420px] lg:h-full">
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-20 w-20 border-l-4 border-t-4 border-[#c1121f]" />
+          <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-20 w-20 border-b-4 border-r-4 border-[#c1121f]" />
+
           <iframe
-            title="Ezgi Tur Harita"
-            src="https://www.google.com/maps?q=%C4%B0zmir%20Menemen%2030%20A%C4%9Fustos%20Mahallesi&output=embed"
-            className="h-full w-full transition duration-700 group-hover:scale-[1.03]"
+            title="Ezgi Tur Konum"
+            src="https://www.google.com/maps?q=30%20A%C4%9Fustos%20Mahallesi%20Menemen%20%C4%B0zmir&output=embed"
+            className="h-full w-full border-0 grayscale"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
 
-        <div className="flex h-full flex-col justify-center border border-black/10 bg-white px-7 py-7 lg:px-12">
-          <span className="text-xs font-black uppercase tracking-[0.4em] text-[#c1121f]">
+        <div className="flex h-full flex-col justify-center border border-black/10 bg-white px-6 py-8 sm:px-8 lg:px-8 lg:py-6">
+          <span className="text-[10px] font-black uppercase tracking-[0.32em] text-[#c1121f] sm:text-xs">
             İletişim
           </span>
 
-          <h2 className="font-heading mt-3 text-4xl leading-tight text-black md:text-5xl">
-            Bize
-            Ulaşın
+          <h2 className="font-heading mt-4 text-3xl leading-tight text-black sm:text-4xl lg:text-[42px]">
+            Bizimle
+            <br />
+            İletişime Geçin
           </h2>
 
           <div className="mt-4 h-[3px] w-20 bg-[#c1121f]" />
 
-          <p className="mt-4 max-w-xl text-base leading-7 text-black/65">
-            Personel taşımacılığı ve kurumsal servis çözümleri için bizimle
-            iletişime geçebilirsiniz.
+          <p className="mt-5 text-sm leading-7 text-black/60 lg:text-[15px] lg:leading-7">
+            Personel taşımacılığı ve servis çözümleri hakkında bilgi almak için
+            telefon, e-posta veya yol tarifi bağlantısını kullanabilirsiniz.
           </p>
 
-          <div className="mt-6 divide-y divide-black/10 border-y border-black/10">
+          <div className="mt-6 space-y-3">
             {contactItems.map((item) => {
               const Icon = item.icon;
 
-              const content = (
-                <div className="group/item relative flex items-center gap-5 overflow-hidden py-4">
-                  <span className="absolute left-0 top-0 h-full w-[3px] -translate-x-full bg-[#c1121f] transition duration-300 group-hover/item:translate-x-0" />
-
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#c1121f]/10 transition duration-300 group-hover/item:bg-[#c1121f]">
+              return (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  target={item.title === "Adres" ? "_blank" : undefined}
+                  rel={item.title === "Adres" ? "noreferrer" : undefined}
+                  className="group flex items-start gap-4 border-b border-black/10 pb-3"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#c1121f]/10 transition duration-300 group-hover:bg-[#c1121f]">
                     <Icon
-                      size={20}
-                      className="text-[#c1121f] transition duration-300 group-hover/item:text-white"
+                      size={18}
+                      className="text-[#c1121f] transition duration-300 group-hover:text-white"
                     />
-                  </div>
+                  </span>
 
-                  <div className="min-w-0">
-                    <h3 className="text-xs font-black uppercase tracking-widest text-black">
+                  <span>
+                    <span className="block text-[10px] font-black uppercase tracking-widest text-black">
                       {item.title}
-                    </h3>
-
-                    <p className="mt-1 break-words text-base font-bold leading-6 text-black/70 transition duration-300 group-hover/item:text-[#c1121f]">
+                    </span>
+                    <span className="mt-1 block text-sm leading-6 text-black/60">
                       {item.value}
-                    </p>
-                  </div>
-                </div>
-              );
-
-              return item.href ? (
-                <a key={item.title} href={item.href} className="block">
-                  {content}
+                    </span>
+                  </span>
                 </a>
-              ) : (
-                <div key={item.title}>{content}</div>
               );
             })}
           </div>
 
           <a
-            href="https://www.google.com/maps/search/?api=1&query=İzmir+Menemen+30+Ağustos+Mahallesi"
+            href="https://www.google.com/maps/search/?api=1&query=30+A%C4%9Fustos+Mahallesi+Menemen+%C4%B0zmir"
             target="_blank"
-            className="group mt-6 flex w-full items-center justify-center gap-3 bg-[#c1121f] px-8 py-4 text-sm font-black uppercase tracking-widest text-white transition duration-300 hover:bg-black"
+            rel="noreferrer"
+            className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[#080808] px-8 py-4 text-xs font-black uppercase tracking-widest text-white transition duration-500 hover:bg-[#c1121f] "
           >
             Yol Tarifi Al
-            <Route size={18} />
-            <ArrowRight
+            <Route
               size={18}
               className="transition duration-300 group-hover:translate-x-1"
             />

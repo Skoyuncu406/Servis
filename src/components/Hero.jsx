@@ -26,15 +26,15 @@ export default function Hero() {
             EZGİ TUR SERVİS TAŞIMACILIĞI
           </p>
 
-          <h1 className="font-heading text-4xl font-bold leading-[0.9] text-black sm:text-5xl md:text-6xl xl:text-7xl">
-            Personel
-            <br />
-            Taşımacılığında
-            <br />
-            <span className="text-[#c1121f]">Güvenilir</span>
-            <br />
-            Çözüm Ortağınız
-          </h1>
+<h1 className="hero-title font-heading  font-bold leading-[0.9] text-black text-6xl xl:text-7xl">
+  Personel
+  <br />
+  Taşımacılığında
+  <br />
+  <span className="text-[#c1121f]">Güvenilir</span>
+  <br />
+  Çözüm Ortağınız
+</h1>
 
           <div className="mt-6 flex gap-3">
             <span className="h-[3px] w-16 bg-[#c1121f]" />
